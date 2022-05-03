@@ -1,0 +1,9 @@
+{% extends 'base2.html' %}
+{% load render_table from django_tables2 %}
+{% block content %}
+<div class="container-fluid">
+    <h5>Message - {{ message}}</h5>
+</div>
+
+{% render_table all_students %}
+{% endblock %}

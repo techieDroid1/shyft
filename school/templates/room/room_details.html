@@ -1,0 +1,36 @@
+{% extends 'base2.html' %}
+{% load render_table from django_tables2 %}
+{% block content %}
+
+{{ message}}
+
+<h2>All Rooms Table</h2>
+<div class="dropdown show">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+       aria-haspopup="true" aria-expanded="false">
+        Select Room
+    </a>
+
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        {% for room in all_rooms %}
+        <a class="dropdown-item" href="{% url 'room_details' room_name=room.name %}">{{ room.name }}</a>
+        {% endfor %}
+    </div>
+</div>
+{% if filtered_room%}
+    {% render_table filtered_room %}
+{% else %}
+    {% render_table all_rooms %}
+{% endif %}
+<div class="container-fluid" style="display: flex;">
+    <div><h3>All Students Table</h3></div>
+    <div>
+        <h3>
+            (Count = {{ student_count }})
+        </h3>
+
+    </div>
+</div>
+
+{% render_table all_students %}
+{% endblock %}

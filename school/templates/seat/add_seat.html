@@ -1,0 +1,15 @@
+{% extends 'base2.html' %}
+{% load crispy_forms_tags %}
+{% load render_table from django_tables2 %}
+{% block content %}
+
+<div class="container-fluid">
+    {% crispy form %}
+</div>
+<div class="container-fluid">
+    {% if seats %}
+    <h3>All Seats</h3>
+    {% render_table seats %}
+    {% endif %}
+</div>
+{% endblock %}

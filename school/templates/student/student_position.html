@@ -1,0 +1,12 @@
+{% extends 'base2.html' %}
+{% load crispy_forms_tags %}
+{% load render_table from django_tables2 %}
+{% block content %}
+
+{% crispy form %}
+{% if student_history %}
+{% render_table student_history %}
+{% endif %}
+
+
+{% endblock %}
