@@ -9,29 +9,29 @@ from crispy_forms.layout import Submit
 def get_student_choices():
     students = Student.objects.all()
     STUDENT_CHOICES = []
-    # for student in students:
-    #     tp = (student.roll_no,
-    #           "{} -||- {} -||- {} -||- {}".format(student.name, student.roll_no, student.student_seat.seat_id,
-    #                                               student.student_seat.seat_room.name))
-    #     STUDENT_CHOICES.append(tp)
+    for student in students:
+        tp = (student.roll_no,
+              "{} -||- {} -||- {} -||- {}".format(student.name, student.roll_no, student.student_seat.seat_id,
+                                                  student.student_seat.seat_room.name))
+        STUDENT_CHOICES.append(tp)
     return tuple(STUDENT_CHOICES)
 
 
 def get_room_choices():
     rooms = Room.objects.all()
     ROOM_CHOICES = []
-    # for room in rooms:
-    #     tp = (room.name, room.name)
-    #     ROOM_CHOICES.append(tp)
+    for room in rooms:
+        tp = (room.name, room.name)
+        ROOM_CHOICES.append(tp)
     return tuple(ROOM_CHOICES)
 
 
 def get_seat_choices():
     seats = Seat.objects.all()
     SEAT_CHOICES = []
-    # for seat in seats:
-    #     tp = (seat.seat_id, "{} -||- {}".format(seat.seat_id, seat.seat_room))
-    #     SEAT_CHOICES.append(tp)
+    for seat in seats:
+        tp = (seat.seat_id, "{} -||- {}".format(seat.seat_id, seat.seat_room))
+        SEAT_CHOICES.append(tp)
     return tuple(SEAT_CHOICES)
 
 
